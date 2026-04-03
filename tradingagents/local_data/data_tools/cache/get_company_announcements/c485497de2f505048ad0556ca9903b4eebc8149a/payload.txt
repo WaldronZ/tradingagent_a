@@ -1,0 +1,23 @@
+# A-share company announcements for 000333.SZ
+
+公告日期,公告类型,公告标题,网址
+2026-04-02,其他,美的集团:关于回购A股股份事项前十名股东和前十名无限售条件股东持股情况的公告,https://data.eastmoney.com/notices/detail/000333/AN202604011820954103.html
+2026-04-02,回购进展情况,美的集团:关于以集中竞价交易方式回购A股股份进展情况的公告,https://data.eastmoney.com/notices/detail/000333/AN202604011820954106.html
+2026-04-01,回购实施公告,美的集团:关于首次实施以集中竞价交易方式回购A股股份的公告,https://data.eastmoney.com/notices/detail/000333/AN202603311820918959.html
+2026-03-31,其他,美的集团:关于开展大宗原材料套期保值业务的可行性分析报告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871221.html
+2026-03-31,独立董事述职报告,美的集团:2025年度独立董事述职报告(邱锂力),https://data.eastmoney.com/notices/detail/000333/AN202603301820871229.html
+2026-03-31,独立董事述职报告,美的集团:2025年度独立董事述职报告(许定波),https://data.eastmoney.com/notices/detail/000333/AN202603301820871233.html
+2026-03-31,提供/对外担保公告,美的集团:关于2026年度为下属控股子公司提供担保的公告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871209.html
+2026-03-31,保荐/核查意见,美的集团:2025年度控股股东及其他关联方占用资金情况专项报告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871213.html
+2026-03-31,ESG公告,美的集团:2025年度环境、社会及管治(ESG)报告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871255.html
+2026-03-31,其他,美的集团:董事会审计委员会2025年度履职情况报告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871254.html
+2026-03-31,股本变动,美的集团:关于回购公司股份结果暨股份变动公告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871226.html
+2026-03-31,其他,美的集团:2026年A股持股计划(草案),https://data.eastmoney.com/notices/detail/000333/AN202603301820871246.html
+2026-03-31,年度报告全文,美的集团:2025年年度报告,https://data.eastmoney.com/notices/detail/000333/AN202603311820893096.html
+2026-03-31,管理办法/制度,美的集团:2026年A股持股计划管理办法,https://data.eastmoney.com/notices/detail/000333/AN202603301820871208.html
+2026-03-31,年度报告摘要,美的集团:2025年年度报告摘要,https://data.eastmoney.com/notices/detail/000333/AN202603301820871240.html
+2026-03-31,其他,美的集团:关于2026年开展大宗原材料套期保值业务的公告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871248.html
+2026-03-31,股权激励计划摘要,美的集团:2026年A股持股计划(草案)摘要,https://data.eastmoney.com/notices/detail/000333/AN202603301820871215.html
+2026-03-31,审计机构变更,美的集团:关于续聘会计师事务所的公告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871223.html
+2026-03-31,其他,美的集团:关于2026年开展外汇衍生品业务的公告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871250.html
+2026-03-31,其他,美的集团:2025年度董事会工作报告,https://data.eastmoney.com/notices/detail/000333/AN202603301820871212.html

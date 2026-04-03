@@ -1,0 +1,15 @@
+{
+  "tool_name": "get_cashflow",
+  "params": {
+    "curr_date": "2026-04-03",
+    "freq": "quarterly",
+    "ticker": "002644.SZ"
+  },
+  "payload_file": "payload.txt",
+  "payload_format": "text",
+  "created_at": "2026-04-03T08:13:53.321317",
+  "metadata": {
+    "description": "A 股现金流量表工具",
+    "namespace": "a_share"
+  }
+}

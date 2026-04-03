@@ -1,0 +1,10 @@
+# A-share company announcements for 002644.SZ
+
+公告日期,公告类型,公告标题,网址
+2026-03-25,召开股东大会通知,佛慈制药:关于召开2026年第一次临时股东会的通知,https://data.eastmoney.com/notices/detail/002644/AN202603241820721867.html
+2026-03-25,董事会决议公告,佛慈制药:第八届董事会第十三次会议决议公告,https://data.eastmoney.com/notices/detail/002644/AN202603241820721869.html
+2026-03-25,提供/对外担保公告,佛慈制药:关于为参股子公司提供担保的公告,https://data.eastmoney.com/notices/detail/002644/AN202603241820721868.html
+2026-03-10,法律意见书,佛慈制药:北京德恒(兰州)律师事务所关于甘肃药业投资集团有限公司免于发出要约事宜的法律意见书,https://data.eastmoney.com/notices/detail/002644/AN202603091820416505.html
+2026-03-10,公司关联方基本资料变更,佛慈制药:关于参股公司完成工商变更登记的自愿性信息披露公告,https://data.eastmoney.com/notices/detail/002644/AN202603091820416439.html
+2026-03-07,公司关联方基本资料变更,佛慈制药:关于控股股东股权结构拟发生变动的提示性公告,https://data.eastmoney.com/notices/detail/002644/AN202603061820344427.html
+2026-03-05,其他,佛慈制药:关于子公司获得高新技术企业证书的公告,https://data.eastmoney.com/notices/detail/002644/AN202603041820265469.html

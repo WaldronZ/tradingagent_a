@@ -1,0 +1,15 @@
+{
+  "tool_name": "get_stock_data",
+  "params": {
+    "end_date": "2026-04-03",
+    "start_date": "2025-11-01",
+    "symbol": "002644.SZ"
+  },
+  "payload_file": "payload.txt",
+  "payload_format": "text",
+  "created_at": "2026-04-03T08:11:32.524363",
+  "metadata": {
+    "description": "A 股日线行情工具",
+    "namespace": "a_share"
+  }
+}
