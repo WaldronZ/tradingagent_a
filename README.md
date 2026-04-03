@@ -4,6 +4,8 @@
 
 多 Agent LLM 交易研究框架（A 股二次开发开源版）
 
+作者主页&联系方式：<https://michaelyuancb.github.io/>
+
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![License](https://img.shields.io/badge/License-Apache%202.0-2EA043)
 ![Market](https://img.shields.io/badge/Market-A--Share-D7263D)
