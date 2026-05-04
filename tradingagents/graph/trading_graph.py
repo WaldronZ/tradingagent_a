@@ -176,8 +176,15 @@ class TradingAgentsGraph:
             if effort:
                 kwargs["effort"] = effort
 
-        # 所有提供方统一注入超时配置
+        if provider == "minimax":
+            minimax_max_tokens = self.config.get("minimax_max_tokens")
+            if minimax_max_tokens is not None:
+                kwargs["minimax_max_tokens"] = minimax_max_tokens
+
+        # 所有提供方统一注入超时配置，MiniMax 可使用单独的长超时。
         timeout = self.config.get("timeout")
+        if provider == "minimax":
+            timeout = self.config.get("minimax_timeout", timeout)
         if timeout is not None:
             kwargs["timeout"] = timeout
 

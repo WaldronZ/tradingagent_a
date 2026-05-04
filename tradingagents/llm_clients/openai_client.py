@@ -31,7 +31,7 @@ class NormalizedChatOpenAI(ChatOpenAI):
 # 将用户配置中的 kwargs 透传给 ChatOpenAI
 _PASSTHROUGH_KWARGS = (
     "timeout", "max_retries", "reasoning_effort",
-    "api_key", "callbacks", "http_client", "http_async_client",
+    "extra_body", "api_key", "callbacks", "http_client", "http_async_client",
 )
 
 # 各提供方的基础地址与 API Key 环境变量
@@ -40,11 +40,35 @@ _PROVIDER_CONFIG = {
     "openrouter": ("https://openrouter.ai/api/v1", "OPENROUTER_API_KEY"),
     "ollama": ("http://localhost:11434/v1", None),
     "qwen": ("https://coding.dashscope.aliyuncs.com/v1", "QWEN_API_KEY"),
+    "minimax": ("https://api.minimaxi.com/v1", "MINIMAX_API_KEY"),
 }
 
 
+def _coerce_int(value: Any, default: Optional[int] = None) -> Optional[int]:
+    """
+    将环境变量或配置项转换为整数；无法转换时使用默认值。
+    """
+    if value is None or value == "":
+        return default
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+
+
+def _coerce_bool(value: Any, default: bool = True) -> bool:
+    """
+    将常见字符串布尔值转换为 bool。
+    """
+    if value is None or value == "":
+        return default
+    if isinstance(value, bool):
+        return value
+    return str(value).strip().lower() not in {"0", "false", "no", "off"}
+
+
 class OpenAIClient(BaseLLMClient):
-    """面向 OpenAI、Ollama、OpenRouter 与 xAI 的客户端封装。
+    """面向 OpenAI、Ollama、OpenRouter、MiniMax 与 xAI 的客户端封装。
 
     原生 OpenAI 模型默认使用 `/v1/responses`，以支持统一的
     `reasoning_effort` 与工具调用行为；兼容提供方继续使用
@@ -86,6 +110,8 @@ class OpenAIClient(BaseLLMClient):
         # 提供方专属的基础地址与鉴权参数
         if self.provider in _PROVIDER_CONFIG:
             base_url, api_key_env = _PROVIDER_CONFIG[self.provider]
+            if self.provider == "minimax":
+                base_url = os.environ.get("MINIMAX_BASE_URL", base_url)
             llm_kwargs["base_url"] = base_url
             if api_key_env:
                 api_key = os.environ.get(api_key_env)
@@ -100,6 +126,22 @@ class OpenAIClient(BaseLLMClient):
         for key in _PASSTHROUGH_KWARGS:
             if key in self.kwargs:
                 llm_kwargs[key] = self.kwargs[key]
+
+        if self.provider == "minimax":
+            extra_body = dict(llm_kwargs.get("extra_body") or {})
+            if _coerce_bool(os.environ.get("MINIMAX_REASONING_SPLIT"), True):
+                extra_body.setdefault("reasoning_split", True)
+
+            max_tokens = self.kwargs.get("minimax_max_tokens")
+            max_tokens = _coerce_int(max_tokens, _coerce_int(os.environ.get("MINIMAX_MAX_TOKENS"), 4096))
+            if max_tokens:
+                extra_body.setdefault("max_tokens", max_tokens)
+
+            if extra_body:
+                llm_kwargs["extra_body"] = extra_body
+
+            if "timeout" not in llm_kwargs:
+                llm_kwargs["timeout"] = _coerce_int(os.environ.get("MINIMAX_TIMEOUT"), 600)
 
         # 原生 OpenAI：使用 Responses API，以在不同模型家族间保持一致行为
         # 第三方兼容提供方则继续使用 Chat Completions。

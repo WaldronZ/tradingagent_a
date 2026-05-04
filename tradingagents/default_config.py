@@ -50,6 +50,9 @@ DEFAULT_CONFIG = {
     "max_recur_limit": 100,
     # 超时配置（秒）
     "timeout": 180,
+    # MiniMax M2.7 会输出较长推理与报告，给它单独保守一点的运行边界。
+    "minimax_timeout": int(os.getenv("MINIMAX_TIMEOUT", "600")),
+    "minimax_max_tokens": int(os.getenv("MINIMAX_MAX_TOKENS", "4096")),
     # 数据供应商配置
     # 类别级配置（该类别下工具默认沿用）
     "data_vendors": {

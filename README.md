@@ -46,7 +46,7 @@
 
 - A 股数据链路：默认 AkShare，覆盖行情、新闻、公告、基本面相关工具。
 - 多 Agent 决策闭环：分析师、研究员、交易员、风控与组合管理分工协作。
-- 多模型提供方统一接入：OpenAI、Azure OpenAI、Anthropic、Google、xAI、OpenRouter、Ollama。
+- 多模型提供方统一接入：OpenAI、Azure OpenAI、Anthropic、Google、xAI、OpenRouter、MiniMax、Ollama。
 - CLI 开箱即用：可直接选择标的、交易日期、分析师与模型组合。
 - 研究导向的输出：强调过程透明和可复盘，不做黑盒策略包装。
 
@@ -129,6 +129,7 @@ export GOOGLE_API_KEY=...
 export ANTHROPIC_API_KEY=...
 export XAI_API_KEY=...
 export OPENROUTER_API_KEY=...
+export MINIMAX_API_KEY=...
 ```
 
 ### 3) 启动 CLI
@@ -146,9 +147,9 @@ from tradingagents.graph.trading_graph import TradingAgentsGraph
 from tradingagents.default_config import DEFAULT_CONFIG
 
 config = DEFAULT_CONFIG.copy()
-config["llm_provider"] = "openai"
-config["deep_think_llm"] = "gpt-5.4"
-config["quick_think_llm"] = "gpt-5.4-mini"
+config["llm_provider"] = "minimax"
+config["deep_think_llm"] = "MiniMax-M2.7"
+config["quick_think_llm"] = "MiniMax-M2.7"
 
 ta = TradingAgentsGraph(debug=True, config=config)
 _, decision = ta.propagate("600519", "2024-05-10")

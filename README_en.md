@@ -46,7 +46,7 @@ Use cases:
 
 - A-share data pipeline: AkShare by default for market, news, announcements, and fundamentals-related tools.
 - End-to-end multi-agent loop: analysts, researchers, trader, risk control, and portfolio manager.
-- Unified multi-provider LLM support: OpenAI, Azure OpenAI, Anthropic, Google, xAI, OpenRouter, and Ollama.
+- Unified multi-provider LLM support: OpenAI, Azure OpenAI, Anthropic, Google, xAI, OpenRouter, MiniMax, and Ollama.
 - CLI out of the box: choose symbol, trade date, analysts, and model settings interactively.
 - Research-first outputs: transparent process and post-run review instead of black-box alpha claims.
 
@@ -129,6 +129,7 @@ export GOOGLE_API_KEY=...
 export ANTHROPIC_API_KEY=...
 export XAI_API_KEY=...
 export OPENROUTER_API_KEY=...
+export MINIMAX_API_KEY=...
 ```
 
 ### 3) Start CLI
@@ -146,9 +147,9 @@ from tradingagents.graph.trading_graph import TradingAgentsGraph
 from tradingagents.default_config import DEFAULT_CONFIG
 
 config = DEFAULT_CONFIG.copy()
-config["llm_provider"] = "openai"
-config["deep_think_llm"] = "gpt-5.4"
-config["quick_think_llm"] = "gpt-5.4-mini"
+config["llm_provider"] = "minimax"
+config["deep_think_llm"] = "MiniMax-M2.7"
+config["quick_think_llm"] = "MiniMax-M2.7"
 
 ta = TradingAgentsGraph(debug=True, config=config)
 _, decision = ta.propagate("600519", "2024-05-10")

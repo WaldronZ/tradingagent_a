@@ -1,6 +1,17 @@
 from abc import ABC, abstractmethod
+import re
 from typing import Any, Optional
 import warnings
+
+
+_THINK_BLOCK_RE = re.compile(r"<think>.*?</think>\s*", re.IGNORECASE | re.DOTALL)
+_UNFINISHED_THINK_RE = re.compile(r"<think>.*$", re.IGNORECASE | re.DOTALL)
+
+
+def _strip_reasoning_tags(text: str) -> str:
+    """移除部分推理模型混入正文的 <think>...</think> 内容。"""
+    without_blocks = _THINK_BLOCK_RE.sub("", text)
+    return _UNFINISHED_THINK_RE.sub("", without_blocks).strip()
 
 
 def normalize_content(response):
@@ -20,7 +31,9 @@ def normalize_content(response):
             else item if isinstance(item, str) else ""
             for item in content
         ]
-        response.content = "\n".join(t for t in texts if t)
+        response.content = _strip_reasoning_tags("\n".join(t for t in texts if t))
+    elif isinstance(content, str):
+        response.content = _strip_reasoning_tags(content)
     return response
 
 

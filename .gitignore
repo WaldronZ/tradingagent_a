@@ -40,6 +40,20 @@ htmlcov/
 results/
 *.log
 
+# Generated reports & analysis data
+reports/
+
+# Runtime data cache
+tradingagents/dataflows/data_cache/
+tradingagents/local_data/data_tools/cache/
+tradingagents/local_data/data_tools/snapshots/
+tradingagents/local_data/market_tools/
+tradingagents/local_data/agents/
+tradingagents/local_data/backtests/
+
+# Auto-generated local config (contains machine-specific paths)
+tradingagents/last_config.py
+
 # IDE
 .vscode/
 .idea/

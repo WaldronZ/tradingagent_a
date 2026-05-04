@@ -1,10 +1,6 @@
 from typing import Optional
 
 from .base_client import BaseLLMClient
-from .azure_client import AzureClient
-from .openai_client import OpenAIClient
-from .anthropic_client import AnthropicClient
-from .google_client import GoogleClient
 
 
 def create_llm_client(
@@ -16,7 +12,7 @@ def create_llm_client(
     """为指定提供方创建 LLM 客户端。
 
     参数：
-        provider: LLM 提供方，如 openai、azure、anthropic、google、xai、ollama、openrouter。
+        provider: LLM 提供方，如 openai、azure、anthropic、google、xai、ollama、openrouter、minimax。
         model: 模型名称或标识。
         base_url: 可选的 API 基础地址。
         **kwargs: 提供方专属的附加参数。
@@ -35,19 +31,29 @@ def create_llm_client(
     """
     provider_lower = provider.lower()
 
-    if provider_lower in ("openai", "ollama", "openrouter", "qwen"):
+    if provider_lower in ("openai", "ollama", "openrouter", "qwen", "minimax"):
+        from .openai_client import OpenAIClient
+
         return OpenAIClient(model, base_url, provider=provider_lower, **kwargs)
 
     if provider_lower == "azure":
+        from .azure_client import AzureClient
+
         return AzureClient(model, base_url, **kwargs)
 
     if provider_lower == "xai":
+        from .openai_client import OpenAIClient
+
         return OpenAIClient(model, base_url, provider="xai", **kwargs)
 
     if provider_lower == "anthropic":
+        from .anthropic_client import AnthropicClient
+
         return AnthropicClient(model, base_url, **kwargs)
 
     if provider_lower == "google":
+        from .google_client import GoogleClient
+
         return GoogleClient(model, base_url, **kwargs)
 
     raise ValueError(f"Unsupported LLM provider: {provider}")

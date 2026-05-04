@@ -93,6 +93,14 @@ MODEL_OPTIONS: ProviderModeOptions = {
             ("Qwen qwen3.5-plus", "qwen3.5-plus"),
         ],
     },
+    "minimax": {
+        "quick": [
+            ("MiniMax M2.7 - Default MiniMax model", "MiniMax-M2.7"),
+        ],
+        "deep": [
+            ("MiniMax M2.7 - Default MiniMax model", "MiniMax-M2.7"),
+        ],
+    },
 }
 
 
